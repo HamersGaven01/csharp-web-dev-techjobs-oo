@@ -13,18 +13,16 @@ namespace TechJobsOO
         public CoreCompetency JobCoreCompetency { get; set; }
 
         // TODO: Add the two necessary constructors.
-
         public Job()
         {
-            Id = nextId;
-            nextId++;
+            Id = nextId++;
         }
 
         public Job(string name,
-                   Employer employerName,
-                   Location employerLocation,
-                   PositionType jobType,
-                   CoreCompetency jobCoreCompetency) : this()
+                    Employer employerName,
+                    Location employerLocation,
+                    PositionType jobType,
+                    CoreCompetency jobCoreCompetency) : this()
         {
             Name = name;
             EmployerName = employerName;
@@ -32,8 +30,6 @@ namespace TechJobsOO
             JobType = jobType;
             JobCoreCompetency = jobCoreCompetency;
         }
-
-        // TODO: Generate Equals() and GetHashCode() methods.
 
         public override bool Equals(object obj)
         {
@@ -43,12 +39,32 @@ namespace TechJobsOO
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id);
+            return base.GetHashCode();
         }
 
 
-        
+        // TODO: Generate Equals() and GetHashCode() methods.
 
+
+        public override string ToString()
+        {
+            if (Name is null &&
+                EmployerName is null &&
+                EmployerLocation is null &&
+                JobType is null &&
+                JobCoreCompetency is null)
+            {
+                return "Oops! This job does not seem to exist!";
+            }
+
+            return $"\nId: {Id}" +
+                $"\nName: {Name}" +
+                $"\nEmployer: {EmployerName}" +
+                $"\nLocation: {EmployerLocation}" +
+                $"\nPosition Type: {JobType}" +
+                $"\nCore Competency: {JobCoreCompetency}" +
+                $"\n";
+        }
 
     }
 }
