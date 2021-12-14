@@ -16,8 +16,12 @@ namespace TechJobTests
         {
             Job job1 = new Job();
             Job job2 = new Job();
+            Job job3 = new Job();
 
             Assert.IsTrue(job2.Id - job1.Id == 1);
+            Assert.IsTrue(job1.Id == 1);
+            Assert.IsTrue(job2.Id == 2);
+            Assert.IsTrue(job3.Id == 3);
         }
 
         [TestMethod]
@@ -49,19 +53,19 @@ namespace TechJobTests
             Assert.IsFalse(job1.Equals(job2));
         }
 
-        //[TestMethod]
-        //public void TestNewLines()
-        //{
-        //    Employer employer = new Employer("ACME");
-        //    Location location = new Location("Desert");
-        //    PositionType jobType = new PositionType("Quality control");
-        //    CoreCompetency jobCoreCompetency = new CoreCompetency("Persistence");
-        //    Job job = new Job("Product Tester", employer, location, jobType, jobCoreCompetency);
+        [TestMethod]
+        public void TestNewLines()
+        {
+            Employer employer = new Employer("ACME");
+            Location location = new Location("Desert");
+            PositionType jobType = new PositionType("Quality control");
+            CoreCompetency jobCoreCompetency = new CoreCompetency("Persistence");
+            Job job = new Job("Product Tester", employer, location, jobType, jobCoreCompetency);
 
-        //    char[] toStringArray = job.ToString().ToCharArray();
-        //    Assert.IsTrue(toStringArray[0] == '\n');
-        //    Assert.IsTrue(toStringArray[toStringArray.Length - 1] == '\n');
-        //}
+            char[] toStringArray = job.ToString().ToCharArray();
+            Assert.IsTrue(toStringArray[0] == '\n');
+            Assert.IsTrue(toStringArray[toStringArray.Length - 1] == '\n');
+        }
 
         [TestMethod]
         public void TestStringMethods()
@@ -96,7 +100,7 @@ namespace TechJobTests
 
             Assert.IsTrue(toStringArray[1] == $"Id: {job.Id}");
             Assert.IsTrue(toStringArray[2] == "Name: Data not available");
-            Assert.IsTrue(toStringArray[3] == "Employer: Data not available");
+            Assert.AreEqual(toStringArray[3], "Employer: Data not available");
             Assert.IsTrue(toStringArray[4] == "Location: Data not available");
             Assert.IsTrue(toStringArray[5] == "Position Type: Data not available");
             Assert.IsTrue(toStringArray[6] == "Core Competency: Data not available");
