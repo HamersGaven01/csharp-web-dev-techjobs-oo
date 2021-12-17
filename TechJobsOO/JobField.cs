@@ -42,7 +42,6 @@ namespace TechJobsOO
             else {
                 return Value;
             }
-            //return Value != null? Value : "Data not available";
         }
     }
 }
