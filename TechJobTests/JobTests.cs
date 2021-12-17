@@ -94,11 +94,14 @@ namespace TechJobTests
         [TestMethod]
         public void TestBlank()
         {
+            //tests that string "Data not available" is displayed when passed empty values
+            // this logic is contained in JobField.cs if any value is null or empty, it returns this string.
+            //(initially contained in each class prior to being refactored into child classes)
             Employer employer = new Employer();
             Location location = new Location();
             PositionType jobType = new PositionType();
             CoreCompetency jobCoreCompetency = new CoreCompetency();
-            Job job = new Job("Data not available", employer, location, jobType, jobCoreCompetency);
+            Job job = new Job(null, employer, location, jobType, jobCoreCompetency);
 
             Assert.AreEqual("Data not available", job.Name);
             Assert.AreEqual("Data not available", job.EmployerName.ToString());
@@ -106,20 +109,11 @@ namespace TechJobTests
             Assert.AreEqual("Data not available", job.JobCoreCompetency.ToString());
             Assert.AreEqual("Data not available", job.JobType.ToString());
 
-            //string[] toStringArray = job.ToString().Split('\n');
-
-            //Assert.IsTrue(toStringArray[1] == $"Id: {job.Id}");
-            //Assert.IsTrue(toStringArray[2] == "Name: Data not available");
-            //Assert.AreEqual(toStringArray[3], "Employer: Data not available");
-            //Assert.IsTrue(toStringArray[4] == "Location: Data not available");
-            //Assert.IsTrue(toStringArray[5] == "Position Type: Data not available");
-            //Assert.IsTrue(toStringArray[6] == "Core Competency: Data not available");
-
         }
 
         [TestMethod]
         public void TestEmptyJob()
-        {
+        {//tests if ALL fields are null, referred to in Job.cs 
             Job job = new Job();
 
             Assert.IsTrue(job.ToString() == "Oops! This job does not seem to exist!");
