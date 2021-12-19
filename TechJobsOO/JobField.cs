@@ -10,8 +10,7 @@ namespace TechJobsOO
 
         public JobField()
         {
-            Id = nextId;
-            nextId++;
+            Id = nextId++;
         }
         //same as above
 

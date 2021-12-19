@@ -101,7 +101,7 @@ namespace TechJobTests
             Location location = new Location();
             PositionType jobType = new PositionType();
             CoreCompetency jobCoreCompetency = new CoreCompetency();
-            Job job = new Job(null, employer, location, jobType, jobCoreCompetency);
+            Job job = new Job("Data not available", employer, location, jobType, jobCoreCompetency);
 
             Assert.AreEqual("Data not available", job.Name);
             Assert.AreEqual("Data not available", job.EmployerName.ToString());
