@@ -94,11 +94,11 @@ namespace TechJobTests
             Location location = new Location();
             PositionType jobType = new PositionType();
             CoreCompetency jobCoreCompetency = new CoreCompetency();
-            Job job = new Job("Data not available", employer, location, jobType, jobCoreCompetency);
+            Job job = new Job("", employer, location, jobType, jobCoreCompetency);
 
             string[] toStringArray = job.ToString().Split('\n');
 
-            Assert.IsTrue(toStringArray[1] == $"Id: {job.Id}");
+            Assert.AreEqual($"Data not available", job.Name.ToString());
             Assert.IsTrue(toStringArray[2] == "Name: Data not available");
             Assert.AreEqual(toStringArray[3], "Employer: Data not available");
             Assert.IsTrue(toStringArray[4] == "Location: Data not available");

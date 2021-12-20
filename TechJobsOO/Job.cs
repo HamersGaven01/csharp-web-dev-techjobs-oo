@@ -24,7 +24,12 @@ namespace TechJobsOO
                     PositionType jobType,
                     CoreCompetency jobCoreCompetency) : this()
         {
-            Name = name;
+            if (name == "")
+            {
+                Name = "Data not available";
+            }
+            else { Name = name; }
+            //Name = name;
             EmployerName = employerName;
             EmployerLocation = employerLocation;
             JobType = jobType;
