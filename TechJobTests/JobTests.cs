@@ -98,7 +98,7 @@ namespace TechJobTests
 
             string[] toStringArray = job.ToString().Split('\n');
 
-            Assert.AreEqual($"Data not available", job.Name.ToString());
+            Assert.IsTrue(toStringArray[1] == $"Id: {job.Id}");
             Assert.IsTrue(toStringArray[2] == "Name: Data not available");
             Assert.AreEqual(toStringArray[3], "Employer: Data not available");
             Assert.IsTrue(toStringArray[4] == "Location: Data not available");
